@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!-- This file is part sale_wishlist module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="sale_wishlist_view_tree">
+            <field name="model">sale.wishlist</field>
+            <field name="type">tree</field>
+            <field name="name">wishlist_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_sale_wishlist">
+            <field name="name">Wish List</field>
+            <field name="res_model">sale.wishlist</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_sale_wishlist_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="sale_wishlist_view_tree"/>
+            <field name="act_window" ref="act_sale_wishlist"/>
+        </record>
+        <menuitem parent="sale.menu_sale" action="act_sale_wishlist"
+            id="menu_sale_wishlist"/>
+
+        <!--  WishList - Wizard -->
+        <record model="ir.action.wizard" id="wizard_wishlist_sale">
+            <field name="name">Create Sale</field>
+            <field name="wiz_name">wishlist.create_sale</field>
+            <field name="model">sale.wishlist</field>
+        </record>
+        <record model="ir.action.keyword" id="act_wizard_wishlist_sale_keyword">
+            <field name="keyword">form_action</field>
+            <field name="model">sale.wishlist,-1</field>
+            <field name="action" ref="wizard_wishlist_sale"/>
+        </record>
+
+        <!-- Access -->
+        <record model="ir.model.access" id="access_sale_wishlist">
+            <field name="model" search="[('model', '=', 'sale.wishlist')]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_sale_sale_wishlist">
+            <field name="model" search="[('model', '=', 'sale.wishlist')]"/>
+            <field name="group" ref="sale.group_sale"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+    </data>
+</tryton>

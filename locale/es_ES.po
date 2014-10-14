@@ -1,0 +1,67 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:sale.wishlist:"
+msgid "A product must be unique for a party."
+msgstr "Un producto debe ser único en el tercero."
+
+msgctxt "error:sale.wishlist:"
+msgid "Add a party in wishlist ID \"%s\"."
+msgstr "Añade un tercero en la lista de deseo ID \"%s\"."
+
+msgctxt "field:sale.wishlist,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:sale.wishlist,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:sale.wishlist,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:sale.wishlist,party:"
+msgid "Party"
+msgstr "Tercero"
+
+msgctxt "field:sale.wishlist,product:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:sale.wishlist,quantity:"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "field:sale.wishlist,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:sale.wishlist,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:sale.wishlist,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "model:ir.action,name:act_sale_wishlist"
+msgid "Wish List"
+msgstr "Lista deseos"
+
+msgctxt "model:ir.action,name:wizard_wishlist_sale"
+msgid "Create Sale"
+msgstr "Crear pedido venta"
+
+msgctxt "model:ir.ui.menu,name:menu_sale_wishlist"
+msgid "Wish List"
+msgstr "Lista deseos"
+
+msgctxt "model:sale.wishlist,name:"
+msgid "Sale Wish List"
+msgstr "Venta lista deseos"
+
+msgctxt "view:sale.wishlist:"
+msgid "Wish List"
+msgstr "Lista deseos"
