@@ -50,6 +50,10 @@ msgctxt "model:ir.action,name:act_sale_wishlist"
 msgid "Wish List"
 msgstr "Lista deseos"
 
+msgctxt "model:ir.action,name:act_sale_wishlist_form2"
+msgid "Wish List"
+msgstr "Lista deseos"
+
 msgctxt "model:ir.action,name:wizard_wishlist_sale"
 msgid "Create Sale"
 msgstr "Crear pedido venta"
