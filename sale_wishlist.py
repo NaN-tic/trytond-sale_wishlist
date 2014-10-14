@@ -36,7 +36,6 @@ class SaleWishlist(ModelSQL, ModelView):
             'add_party': ('Add a party in wishlist ID "%s".'),
             })
 
-
     @staticmethod
     def default_quantity():
         return 1

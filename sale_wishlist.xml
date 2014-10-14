@@ -49,5 +49,17 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
+
+        <!-- Party -->
+        <record model="ir.action.act_window" id="act_sale_wishlist_form2">
+            <field name="name">Wish List</field>
+            <field name="res_model">sale.wishlist</field>
+            <field name="domain">[("party", "=", Eval('active_id'))]</field>
+        </record>
+        <record model="ir.action.keyword" id="act_open_sale_wishlist_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">party.party,-1</field>
+            <field name="action" ref="act_sale_wishlist_form2"/>
+        </record>
     </data>
 </tryton>
