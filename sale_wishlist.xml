@@ -20,6 +20,10 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
         </record>
         <menuitem parent="sale.menu_sale" action="act_sale_wishlist"
             id="menu_sale_wishlist"/>
+        <record model="ir.ui.menu-res.group" id="menu_sale_wishlist_group_sale">
+            <field name="menu" ref="menu_sale_wishlist"/>
+            <field name="group" ref="sale.group_sale"/>
+        </record>
 
         <!--  WishList - Wizard -->
         <record model="ir.action.wizard" id="wizard_wishlist_sale">
