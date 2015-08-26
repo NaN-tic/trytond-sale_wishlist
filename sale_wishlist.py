@@ -74,22 +74,25 @@ class SaleWishlist(ModelSQL, ModelView):
                 wishlist_group[wishlist.party] = lines
 
         # Create sale and sale lines
-        for party, lines in wishlist_group.iteritems():
+        for party, wlines in wishlist_group.iteritems():
             sale = Sale.get_sale_data(party)
             if values:
                 for k, v in values.iteritems():
                     setattr(sale, k, v)
+
+            lines = []
+            for l in wlines:
+                line = SaleLine.get_sale_line_data(sale,
+                    l.get('product'), l.get('quantity'))
+                lines.append(line)
+            sale.lines = lines
+
             try:
                 sale.save()
             except:
                 exc_type, exc_value = sys.exc_info()[:2]
                 return [], exc_value
             sales.add(sale)
-
-            for line in lines:
-                sale_line = SaleLine.get_sale_line_data(sale,
-                    line.get('product'), line.get('quantity'))
-                sale_line.save()
 
         return sales, None
 
