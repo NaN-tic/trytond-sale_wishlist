@@ -53,7 +53,7 @@ class SaleWishlist(ModelSQL, ModelView):
         SaleLine = pool.get('sale.line')
 
         wishlist_group = {}
-        sales = set()
+        sales = []
 
         # Group wishlists in party
         for wishlist in wishlists:
@@ -86,13 +86,14 @@ class SaleWishlist(ModelSQL, ModelView):
                     l.get('product'), l.get('quantity'))
                 lines.append(line)
             sale.lines = lines
+            sales.append(sale)
 
+        if sales:
             try:
-                sale.save()
+                Sale.save(sales)
             except:
                 exc_type, exc_value = sys.exc_info()[:2]
                 return [], exc_value
-            sales.add(sale)
 
         return sales, None
 
@@ -112,7 +113,7 @@ class WishlistCreateSale(Wizard):
 
     def do_open_(self, action):
         sales, _ = self.sales
-        ids = [sale.id for sale in list(sales)]
+        ids = [sale.id for sale in sales]
         action['pyson_domain'] = PYSONEncoder().encode(
             [('id', 'in', ids)])
         return action, {}
