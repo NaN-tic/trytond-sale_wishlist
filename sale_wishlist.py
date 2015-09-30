@@ -1,7 +1,7 @@
 # This file is part of sale_wishlist module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
-from trytond.model import ModelSQL, ModelView, fields
+from trytond.model import ModelSQL, ModelView, fields, Unique
 from trytond.wizard import Wizard, StateTransition, StateAction
 from trytond.pool import Pool
 from trytond.transaction import Transaction
@@ -28,8 +28,9 @@ class SaleWishlist(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(SaleWishlist, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints += [
-            ('wishlist_uniq', 'UNIQUE(party, product)',
+            ('wishlist_uniq', Unique(t, t.party, t.product),
                 'A product must be unique for a party.'),
             ]
         cls._error_messages.update({
