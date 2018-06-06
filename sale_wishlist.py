@@ -15,7 +15,6 @@ __all__ = ['SaleWishlist', 'WishlistCreateSale']
 class SaleWishlist(ModelSQL, ModelView):
     'Sale Wish List'
     __name__ = 'sale.wishlist'
-    _rec_name = 'product'
     party = fields.Many2One('party.party', 'Party', required=True)
     quantity = fields.Float('Quantity',
         digits=(16, 2), required=True)
@@ -97,6 +96,10 @@ class SaleWishlist(ModelSQL, ModelView):
                 return [], exc_value
 
         return sales, None
+
+    def get_rec_name(self, name):
+        if self.product:
+            return self.product.rec_name
 
 
 class WishlistCreateSale(Wizard):
