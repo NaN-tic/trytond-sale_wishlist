@@ -6,6 +6,8 @@ from trytond.wizard import Wizard, StateTransition, StateAction
 from trytond.pool import Pool
 from trytond.transaction import Transaction
 from trytond.pyson import PYSONEncoder
+from trytond.i18n import gettext
+from trytond.exceptions import UserError
 
 import sys
 
@@ -32,9 +34,6 @@ class SaleWishlist(ModelSQL, ModelView):
             ('wishlist_uniq', Unique(t, t.party, t.product),
                 'A product must be unique for a party.'),
             ]
-        cls._error_messages.update({
-            'add_party': ('Add a party in wishlist ID "%s".'),
-            })
 
     @staticmethod
     def default_quantity():
@@ -58,7 +57,8 @@ class SaleWishlist(ModelSQL, ModelView):
         # Group wishlists in party
         for wishlist in wishlists:
             if not wishlist.party:
-                cls.raise_user_error('add_party', (wishlist.id,))
+                raise UserError(gettext('sale_wishlist.add_party',
+                    wishlist=wishlist.id))
 
             if not wishlist.party in wishlist_group:
                 wishlist_group[wishlist.party] = [{
