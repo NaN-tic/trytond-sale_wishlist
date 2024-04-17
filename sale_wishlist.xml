@@ -39,14 +39,14 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
 
         <!-- Access -->
         <record model="ir.model.access" id="access_sale_wishlist">
-            <field name="model" search="[('model', '=', 'sale.wishlist')]"/>
+            <field name="model">sale.wishlist</field>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
         <record model="ir.model.access" id="access_sale_sale_wishlist">
-            <field name="model" search="[('model', '=', 'sale.wishlist')]"/>
+            <field name="model">sale.wishlist</field>
             <field name="group" ref="sale.group_sale"/>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="True"/>
