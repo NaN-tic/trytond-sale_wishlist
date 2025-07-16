@@ -1,14 +1,6 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
-
-msgctxt "error:sale.wishlist:"
-msgid "A product must be unique for a party."
-msgstr "El producte ha de ser únic en el tercer."
-
-msgctxt "error:sale.wishlist:"
-msgid "Add a party in wishlist ID \"%s\"."
-msgstr "Afegeix un tercer a la llista de desitjos ID \"%s\"."
 
 msgctxt "field:sale.wishlist,create_date:"
 msgid "Create Date"
