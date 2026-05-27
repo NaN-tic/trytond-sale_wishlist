@@ -8,6 +8,3 @@ def register():
     Pool.register(
         sale_wishlist.SaleWishlist,
         module='sale_wishlist', type_='model')
-    Pool.register(
-        sale_wishlist.WishlistCreateSale,
-        module='sale_wishlist', type_='wizard')
